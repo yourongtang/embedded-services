@@ -276,7 +276,6 @@ impl<A: AddressMode + Copy, B: I2c<A>> Device<A, B> {
             Ok(Some(Response::FeatureReport(
                 self.buffer.reference().slice(0..returned_len).map_err(Error::Buffer)?,
             )))
-
         } else {
             let len = cmd
                 .encode_into_slice(
